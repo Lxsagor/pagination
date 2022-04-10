@@ -4,7 +4,7 @@ import React from "react";
 import { Router } from "react-router-dom";
 import Details from "../Components/Details";
 
-test("Render details component", () => {
+test("Should render details component", () => {
     const history = createMemoryHistory();
     history.push("/details", {
         title: "",

@@ -38,16 +38,15 @@ export interface InitPost {
 
 const Home: React.FC = () => {
     const history = useHistory();
-
     const [page, setPage] = useState<number>(0);
 
     const [localPage, setLocalPage] = useState<number>(1);
-    const rowsPerPage: number = 20;
-    const [totalElements, setTotalElements] = useState<number>(0);
 
     const [loading, setLoading] = useState<boolean>(false);
 
     const [posts, setPosts] = useState<InitPost[]>([]);
+    const rowsPerPage: number = 20;
+    const [totalElements, setTotalElements] = useState<number>(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
