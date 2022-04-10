@@ -1,5 +1,6 @@
 import {
     Box,
+    CircularProgress,
     Container,
     Pagination,
     Paper,
@@ -9,13 +10,10 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    CircularProgress,
     Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@mui/styles";
-import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 interface Column {
     id: "title" | "url" | "created_at" | "author";
@@ -39,12 +37,10 @@ export interface InitPost {
 }
 
 const Home: React.FC = () => {
-    const navigate = useNavigate();
+    const history = useHistory();
 
-    // pagination
     const [page, setPage] = useState<number>(0);
 
-    // Local Pagination
     const [localPage, setLocalPage] = useState<number>(1);
     const rowsPerPage: number = 20;
     const [totalElements, setTotalElements] = useState<number>(0);
@@ -90,12 +86,14 @@ const Home: React.FC = () => {
     };
 
     const getDetails = (post: InitPost) => {
-        navigate("/details", { state: post });
+        history.push("/details", { state: post });
     };
 
     return (
         <>
-            <h2>Post List</h2>
+            <Typography variant="h5" align="center">
+                Post List
+            </Typography>
             {loading ? (
                 <Box
                     sx={{

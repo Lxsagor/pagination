@@ -1,8 +1,8 @@
+import { render, screen } from "@testing-library/react";
+import { createMemoryHistory } from "history";
 import React from "react";
 import { Router } from "react-router-dom";
-import { render, screen } from "@testing-library/react";
 import Details from "../Components/Details";
-import { createMemoryHistory } from "history";
 
 test("Render details component", () => {
     const history = createMemoryHistory();
